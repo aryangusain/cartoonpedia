@@ -1,7 +1,10 @@
+import connectDB from "@/utils/connectDB";
 import createSearchName from "@/utils/createSearchName";
 import Character from "@/utils/schema";
 
 export async function POST(request) {
+    await connectDB();
+    
     try {
         const res = await request.json();
         const searchName = await createSearchName(res.searchName);

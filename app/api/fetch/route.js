@@ -1,6 +1,9 @@
+import connectDB from "@/utils/connectDB";
 import Character from "@/utils/schema";
 
 export async function GET() {
+    await connectDB();
+
     try {
         const characters = await Character.find();
         console.log('characters: ', characters);
